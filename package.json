@@ -1,0 +1,16 @@
+{
+    "name": "ls-artdmx-node",
+    "version": "1.0.0",
+    "description": "LarkSpark Art-Net DMX App",
+    "main": "index.js",
+    "dependencies": {},
+    "devDependencies": {
+        "@types/core-js": "^0.9.35",
+        "@types/mathjs": "0.0.33",
+        "@types/node": "^7.0.4",
+        "typescript": "^2.1.5"
+    },
+    "scripts": {},
+    "author": "D. Dante Lorenso <dante@lorenso.com>",
+    "license": "MIT"
+}

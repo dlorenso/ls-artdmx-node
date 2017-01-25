@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "module": "system",
+        "moduleResolution": "node",
+        "target": "es5",
+        "sourceMap": false,
+        "noImplicitAny": false,
+        "removeComments": false,
+        "experimentalDecorators": true,
+        "outFile": "build/client.js",
+        "types": [
+            "node"
+        ],
+        "typeRoots": [
+            "node_modules/@types"
+        ]
+    },
+    "include": [
+        "./library/**/*",
+        "test/*"
+    ],
+    "exclude": [
+        "./node_modules"
+    ]
+}
