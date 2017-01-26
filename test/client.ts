@@ -4,15 +4,15 @@
  * in the file LICENSE.txt.  It is also available at: https://opensource.org/licenses/MIT
  */
 
-import ArtDmxClient = LarkSpark.ArtNet.ArtDmxClient;
+import ArtDmxClient = LarkSpark.ArtDmxClient;
 
 let dmx = {
     bedroom: {red: 0, green: 0, blue: 0},
     living: {red: 0, green: 255, blue: 0}
 };
 
-let clientx = new ArtDmxClient('10.10.14.255', 6454);
-clientx.broadcast([
+let client = new ArtDmxClient('10.10.14.255', 6454);
+client.broadcast([
     // bedroom
     dmx.bedroom.green, dmx.bedroom.red, dmx.bedroom.blue,
 

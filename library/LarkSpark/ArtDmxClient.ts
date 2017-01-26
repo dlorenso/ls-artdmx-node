@@ -3,7 +3,7 @@
  * This source file is subject to the MIT license that is bundled with this package
  * in the file LICENSE.txt.  It is also available at: https://opensource.org/licenses/MIT
  */
-namespace LarkSpark.ArtNet {
+namespace LarkSpark {
     const dgram = require('dgram');
 
     export class ArtDmxClient {
@@ -73,6 +73,8 @@ namespace LarkSpark.ArtNet {
          * @param dmx
          */
         public broadcast(dmx:number[]):void {
+            console.log('dmx', dmx);
+
             // debugging
             console.log('host:', this.host, '| port:', this.port, '| universe:', this.universe);
 
@@ -111,7 +113,7 @@ namespace LarkSpark.ArtNet {
             });
 
             // bind the udp source port
-            sock.bind({port: this.port, address: '0.0.0.0', exclusive: false});
+            sock.bind({port: this.port, address: '0.0.0.0', exclusive: true});
         }
     }
 }
