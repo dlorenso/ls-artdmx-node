@@ -60,10 +60,18 @@ namespace LarkSpark {
 
             // generate ARTDMX packet
             let artdmx = Buffer.alloc(6, 0);
+
+            // Sequence, Int8
             artdmx.writeUInt8(0, 0); // 0 Sequence = 0 (disabled)
+
+            // Physical, input Int8
             artdmx.writeUInt8(0, 1); // 1 Physical = 0 (informational only, use universe for routing)
-            artdmx.writeUInt16BE(this.universe, 2); // 14-15 SubUni / Net
-            artdmx.writeUInt16BE(payload.length, 4); // 16-17 Length Hi/Lo (length of DMX512 data, even number 2-512, # channels in packet)
+
+            // Universe number, 15 bit accuracy
+            artdmx.writeUInt16LE(this.universe & 0x7FFF, 2); // 2-3 SubUni / Net
+
+            // Data length
+            artdmx.writeUInt16BE(payload.length, 4); // 4-5 Length Hi/Lo (length of DMX512 data, even number 2-512, # channels in packet)
 
             // assemble payload with artdmx
             return Buffer.concat([artdmx, payload]);
